@@ -50,20 +50,20 @@ public class Lab_6_Test {
     @Test
     public void setNameTest(){
         Director director = mock(Director.class);
-        director.setName("physics");
-        director.setName("math");
-        director.setName("math");
-        director.setName("math");
-        director.setName("biology");
+        director.setName("Tom");
+        director.setName("Bill");
+        director.setName("Bill");
+        director.setName("Bill");
+        director.setName("John");
 
-        verify(director, times(1)).setName("physics");
-        verify(director, times(3)).setName("math");
-        verify(director, times(1)).setName("biology");
+        verify(director, times(1)).setName("Tom");
+        verify(director, times(3)).setName("Bill");
+        verify(director, times(1)).setName("John");
 
         InOrder inOrder = inOrder(director);
-        inOrder.verify(director).setName("physics");
-        inOrder.verify(director, times(3)).setName("math");
-        inOrder.verify(director).setName("biology");
+        inOrder.verify(director).setName("Tom");
+        inOrder.verify(director, times(3)).setName("Bill");
+        inOrder.verify(director).setName("John");
 
     }
 
@@ -130,7 +130,7 @@ public class Lab_6_Test {
         inOrder.verify(director).setSalary(225);
 
         doThrow(NegativeSalaryException.class).when(director).setSalary(-500);
-        doThrow(EnormousSalaryException.class).when(director).setSalary(300800000);
+        doThrow(EnormousSalaryException.class).when(director).setSalary(1000000000);
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
